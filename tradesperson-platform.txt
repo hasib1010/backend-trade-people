@@ -1,0 +1,28 @@
+tradesPerson-platform/
+├── node_modules/
+├── src/
+│   ├── controllers/
+│   │   ├── authController.js
+│   │   ├── jobController.js
+│   │   └── profileController.js
+│   ├── models/
+│   │   ├── User.js
+│   │   ├── TradespersonProfile.js
+│   │   ├── Job.js
+│   │   └── Review.js
+│   ├── routes/
+│   │   ├── index.js
+│   │   ├── auth.js
+│   │   ├── jobs.js
+│   │   └── profiles.js
+│   ├── middleware/
+│   │   ├── auth.js
+│   │   └── errorHandler.js
+│   ├── config/
+│   │   └── database.js
+│   │   └── database.js
+│   ├── utils/
+│   └── server.js
+├── .env
+└── package.json
+
