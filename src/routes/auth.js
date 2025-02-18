@@ -23,7 +23,7 @@ router.post(
 );
 
 router.post(
-  '/tradesPerson/register',
+  '/tradesperson/register',
   upload.fields([
     { name: 'profileImage', maxCount: 1 },
     { name: 'licenseImage', maxCount: 1 },

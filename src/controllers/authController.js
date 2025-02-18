@@ -112,7 +112,7 @@ const registerCustomer = async (req, res) => {
 };
 
 /**
- * Register a new tradesPerson
+ * Register a new tradesperson
  */
 const registerTradesperson = async (req, res) => {
   try {
@@ -139,7 +139,7 @@ const registerTradesperson = async (req, res) => {
       try {
         for (const [key, files] of Object.entries(req.files)) {
           if (files && files[0]) {
-            const result = await uploadToCloudinary(files[0].path, 'tradesPerson-profiles');
+            const result = await uploadToCloudinary(files[0].path, 'tradesperson-profiles');
             images[key] = result.secure_url;
           }
         }
@@ -168,7 +168,7 @@ const registerTradesperson = async (req, res) => {
       phone,
       passwordHash: hashedPassword,
       postcode,
-      role: 'tradesPerson',
+      role: 'tradesperson',
       profilePicture: images.profileImage || '',
       status: 'pending',
       verificationToken,
@@ -177,7 +177,7 @@ const registerTradesperson = async (req, res) => {
 
     await newUser.save();
 
-    // Create tradesPerson profile
+    // Create tradesperson profile
     const profile = new TradespersonProfile({
       userId: newUser._id,
       selectedTrade: trade,
@@ -201,7 +201,7 @@ const registerTradesperson = async (req, res) => {
       html: `
         <h1>Welcome to TradesPerson Platform</h1>
         <p>Hello ${firstName},</p>
-        <p>Thank you for registering as a tradesPerson. Please verify your email by clicking the link below:</p>
+        <p>Thank you for registering as a tradesperson. Please verify your email by clicking the link below:</p>
         <a href="${verificationUrl}" style="padding: 10px 15px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">
           Verify Email
         </a>
@@ -452,9 +452,9 @@ const checkAuth = async (req, res) => {
         });
       }
   
-      // Get additional profile info for tradesPerson
+      // Get additional profile info for tradesperson
       let additionalInfo = {};
-      if (user.role === 'tradesPerson') {
+      if (user.role === 'tradesperson') {
         const profile = await TradespersonProfile.findOne({ userId: user._id });
         if (profile) {
           additionalInfo = {

@@ -123,7 +123,7 @@ const emailTemplates = {
           <p>Hello ${name},</p>
           <p>Thank you for verifying your email. Your account is now ${role === 'customer' ? 'active' : 'under review'}.</p>
           ${role === 'customer' 
-            ? `<p>You can now start browsing and posting jobs to find the perfect tradesPerson for your needs.</p>` 
+            ? `<p>You can now start browsing and posting jobs to find the perfect tradesperson for your needs.</p>` 
             : `<p>Our team is reviewing your credentials. Once approved, you'll be able to access jobs and start building your profile.</p>`
           }
           <div style="text-align: center; margin: 30px 0;">

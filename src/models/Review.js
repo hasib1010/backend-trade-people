@@ -12,7 +12,7 @@ const reviewSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
-    tradesPerson: {
+    tradesperson: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true

@@ -1,4 +1,4 @@
-tradesPerson-platform/
+tradesperson-platform/
 ├── node_modules/
 ├── src/
 │   ├── controllers/

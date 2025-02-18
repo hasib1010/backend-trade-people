@@ -109,7 +109,7 @@ const jobController = {
             const job = await Job.findById(req.params.id)
                 .populate('customer', 'firstName lastName email')
                 .populate('assignedTradesperson', 'firstName lastName')
-                .populate('applicants.tradesPerson', 'firstName lastName');
+                .populate('applicants.tradesperson', 'firstName lastName');
 
             if (!job) {
                 return res.status(404).json({ error: 'Job not found' });
@@ -130,7 +130,7 @@ const jobController = {
                 return res.status(404).json({ error: 'Job not found' });
             }
 
-            // Check if tradesPerson has enough credits
+            // Check if tradesperson has enough credits
             const profile = await TradespersonProfile.findOne({ userId: req.user.id });
             if (profile.credits < 1) {
                 return res.status(400).json({ error: 'Insufficient credits' });
@@ -203,7 +203,7 @@ const jobController = {
 
             applicant.status = status;
             if (status === 'accepted') {
-                job.assignedTradesperson = applicant.tradesPerson;
+                job.assignedTradesperson = applicant.tradesperson;
                 job.jobStatus = 'inProgress';
             }
 

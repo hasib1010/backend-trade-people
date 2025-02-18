@@ -43,7 +43,7 @@ const jobSchema = new mongoose.Schema({
         ref: 'User'
     },
     applicants: [{
-        tradesPerson: {
+        tradesperson: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User'
         },
